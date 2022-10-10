@@ -11,6 +11,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/api/date", (req, res) => {
+  res.json({ date: new Date() });
+});
+
 app.use(express.static("."));
 app.use(serveIndex(".", { icons: true }));
 
