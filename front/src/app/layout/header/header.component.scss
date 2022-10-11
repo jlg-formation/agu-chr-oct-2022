@@ -4,26 +4,26 @@ header {
   height: 3em;
   display: flex;
   align-items: center;
-}
 
-header a {
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
 
-  text-decoration: inherit;
-  color: inherit;
-}
+    text-decoration: inherit;
+    color: inherit;
 
-header a img {
-  height: 2.5em;
-}
+    img {
+      height: 2.5em;
+    }
 
-header a span {
-  font-size: 1.3em;
-  font-weight: bold;
-}
+    span {
+      font-size: 1.3em;
+      font-weight: bold;
+    }
 
-header a:hover {
-  text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
