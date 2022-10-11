@@ -11,3 +11,10 @@ body {
 h1 {
   text-align: center;
 }
+
+main {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 0.5em;
+}
