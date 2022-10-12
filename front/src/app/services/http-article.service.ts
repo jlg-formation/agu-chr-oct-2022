@@ -17,11 +17,28 @@ export class HttpArticleService extends ArticleService {
 
   override refresh(): void {
     super.refresh();
-    this.http.get(url);
+    this.http.get<Article[]>(url).subscribe({
+      next: (articles) => {
+        console.log('articles: ', articles);
+        this.articles = articles;
+        this.save();
+      },
+      error: (err) => {
+        console.log('err: ', err);
+      },
+    });
   }
 
   override add(a: Article): void {
     super.add(a);
     console.log('add http article');
+    this.http.post(url, a).subscribe({
+      next: () => {
+        this.refresh();
+      },
+      error: (err) => {
+        console.log('err: ', err);
+      },
+    });
   }
 }

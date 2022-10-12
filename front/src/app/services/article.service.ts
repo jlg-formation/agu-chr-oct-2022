@@ -19,28 +19,7 @@ export class ArticleService {
   getArticles(): Article[] {
     const str = localStorage.getItem(ARTICLE_KEY);
     if (str === null) {
-      return [
-        {
-          name: 'Tournevis',
-          price: 3.45,
-          qty: 100,
-        },
-        {
-          name: 'Tournevis cruciforme',
-          price: 4.5,
-          qty: 100,
-        },
-        {
-          name: 'Tondeuse à gazon',
-          price: 250,
-          qty: 3,
-        },
-        {
-          name: 'Pelle',
-          price: 5,
-          qty: 150,
-        },
-      ];
+      return [];
     }
     return JSON.parse(str);
   }
