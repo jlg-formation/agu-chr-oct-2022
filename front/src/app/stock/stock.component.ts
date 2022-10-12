@@ -17,6 +17,7 @@ export class StockComponent implements OnInit {
   refresh() {
     console.log('refresh');
     this.articleService.refresh();
+    this.selectedArticles.clear();
   }
 
   remove() {
