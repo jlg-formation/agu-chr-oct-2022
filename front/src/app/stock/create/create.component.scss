@@ -1,0 +1,11 @@
+form {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5em;
+  width: 100%;
+  max-width: 25em;
+
+  button {
+    margin-top: 3em;
+  }
+}
