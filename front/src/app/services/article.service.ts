@@ -13,7 +13,7 @@ export class ArticleService {
 
   add(a: Article) {
     this.articles.push(a);
-    localStorage.setItem(ARTICLE_KEY, JSON.stringify(this.articles));
+    this.save();
   }
 
   getArticles(): Article[] {
@@ -47,5 +47,14 @@ export class ArticleService {
 
   refresh() {
     this.articles = this.getArticles();
+  }
+
+  remove(selectedArticles: Set<Article>) {
+    this.articles = this.articles.filter((a) => !selectedArticles.has(a));
+    this.save();
+  }
+
+  save() {
+    localStorage.setItem(ARTICLE_KEY, JSON.stringify(this.articles));
   }
 }
