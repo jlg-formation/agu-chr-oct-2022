@@ -11,6 +11,11 @@ export class ArticleService {
 
   constructor() {}
 
+  add(a: Article) {
+    this.articles.push(a);
+    localStorage.setItem(ARTICLE_KEY, JSON.stringify(this.articles));
+  }
+
   getArticles(): Article[] {
     const str = localStorage.getItem(ARTICLE_KEY);
     if (str === null) {
@@ -40,8 +45,7 @@ export class ArticleService {
     return JSON.parse(str);
   }
 
-  add(a: Article) {
-    this.articles.push(a);
-    localStorage.setItem(ARTICLE_KEY, JSON.stringify(this.articles));
+  refresh() {
+    this.articles = this.getArticles();
   }
 }
