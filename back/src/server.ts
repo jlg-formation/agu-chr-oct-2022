@@ -74,6 +74,10 @@ app.delete("/api/articles", (req, res) => {
 app.use(express.static(wwwDir));
 app.use(serveIndex(wwwDir, { icons: true }));
 
+app.get("/*", (req, res) => {
+  res.sendFile("index.html", { root: wwwDir });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
