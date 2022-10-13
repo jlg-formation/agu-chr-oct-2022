@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import { Article } from "./interfaces/Article";
 
 const app = express();
-const port = 3000;
+const port = +(process.env.GS_PORT || 3000);
 const wwwDir = "../front/dist/front";
 
 const generateId = (): string => {
