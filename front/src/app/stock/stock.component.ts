@@ -17,15 +17,23 @@ export class StockComponent implements OnInit {
   faAdd = faAdd;
   faTrashCan = faTrashCan;
   selectedArticles = new Set<Article>();
+  isRefreshing = false;
 
   constructor(public articleService: ArticleService) {}
 
   ngOnInit(): void {}
 
-  refresh() {
-    console.log('refresh');
-    this.articleService.refresh();
-    this.selectedArticles.clear();
+  async refresh() {
+    try {
+      console.log('refresh');
+      this.isRefreshing = true;
+      await this.articleService.refresh();
+      this.selectedArticles.clear();
+    } catch (err) {
+      console.log('err: ', err);
+    } finally {
+      this.isRefreshing = false;
+    }
   }
 
   remove() {

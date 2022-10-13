@@ -24,7 +24,7 @@ export class ArticleService {
     return JSON.parse(str);
   }
 
-  refresh() {
+  async refresh() {
     this.articles = this.getArticles();
   }
 
