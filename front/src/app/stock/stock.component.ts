@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Article } from 'src/interfaces/Article';
-import { ArticleService } from '../services/article.service';
 import {
-  faRotateRight,
   faAdd,
+  faCircleNotch,
+  faRotateRight,
   faTrashCan,
 } from '@fortawesome/free-solid-svg-icons';
+import { Article } from 'src/interfaces/Article';
+import { ArticleService } from '../services/article.service';
 
 @Component({
   selector: 'app-stock',
@@ -13,11 +14,13 @@ import {
   styleUrls: ['./stock.component.scss'],
 })
 export class StockComponent implements OnInit {
-  faRotateRight = faRotateRight;
   faAdd = faAdd;
+  faCircleNotch = faCircleNotch;
+  faRotateRight = faRotateRight;
   faTrashCan = faTrashCan;
-  selectedArticles = new Set<Article>();
   isRefreshing = false;
+  isRemoving = false;
+  selectedArticles = new Set<Article>();
 
   constructor(public articleService: ArticleService) {}
 
@@ -36,10 +39,17 @@ export class StockComponent implements OnInit {
     }
   }
 
-  remove() {
-    console.log('about to remove');
-    this.articleService.remove(this.selectedArticles);
-    this.selectedArticles.clear();
+  async remove() {
+    try {
+      this.isRemoving = true;
+      console.log('about to remove');
+      await this.articleService.remove(this.selectedArticles);
+      this.selectedArticles.clear();
+    } catch (err) {
+      console.log('err: ', err);
+    } finally {
+      this.isRemoving = false;
+    }
   }
 
   toggle(a: Article) {

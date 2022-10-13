@@ -13,7 +13,10 @@
         (click)="remove()"
         title="Supprimer"
       >
-        <fa-icon [icon]="faTrashCan"></fa-icon>
+        <fa-icon
+          [icon]="isRemoving ? faCircleNotch : faTrashCan"
+          [spin]="isRemoving"
+        ></fa-icon>
       </button>
     </nav>
     <table>

@@ -34,24 +34,21 @@ export class HttpArticleService extends ArticleService {
     await this.refresh();
   }
 
-  override remove(selectedArticles: Set<Article>): void {
-    super.remove(selectedArticles);
+  override async remove(selectedArticles: Set<Article>): Promise<void> {
+    await super.remove(selectedArticles);
     console.log('remove selected articles');
     const ids = [...selectedArticles].map((a) => a.id);
-    this.http
-      .delete(url, {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-        }),
-        body: ids,
-      })
-      .subscribe({
-        next: () => {
-          this.refresh();
-        },
-        error: (err) => {
-          console.log('err: ', err);
-        },
-      });
+    await lastValueFrom(
+      this.http
+        .delete(url, {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+          }),
+          body: ids,
+        })
+        .pipe(delay(DELAY))
+    );
+
+    await this.refresh();
   }
 }
