@@ -33,7 +33,7 @@
           (click)="toggle(article)"
           [class.selected]="selectedArticles.has(article)"
         >
-          <td class="name">{{ article.name }}</td>
+          <td class="name">{{ article.name | ellipsis: 15 }}</td>
           <td class="price">
             {{ article.price | currency }}
           </td>
