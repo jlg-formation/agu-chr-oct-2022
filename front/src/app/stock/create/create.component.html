@@ -14,7 +14,10 @@
       <input type="number" formControlName="qty" />
     </label>
     <button class="primary">
-      <fa-icon [icon]="faAdd"></fa-icon>
+      <fa-icon
+        [icon]="isAdding ? faCircleNotch : faAdd"
+        [spin]="isAdding"
+      ></fa-icon>
       <span>Ajouter</span>
     </button>
   </form>

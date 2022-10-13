@@ -11,7 +11,7 @@ export class ArticleService {
 
   constructor() {}
 
-  add(a: Article) {
+  async add(a: Article) {
     this.articles.push(a);
     this.save();
   }
