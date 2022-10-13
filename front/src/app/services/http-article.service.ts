@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Article } from 'src/interfaces/Article';
 import { ArticleService } from './article.service';
 
-const url = 'http://localhost:3000/api/articles';
+const url = '/api/articles';
 const DELAY = environment.delay;
 
 @Injectable({
