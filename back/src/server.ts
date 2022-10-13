@@ -42,6 +42,10 @@ let articles: Article[] = [
   },
 ];
 
+// app.use((req, res, next) => {
+//   setTimeout(next, 2000);
+// });
+
 app.use(cors());
 app.use(express.json());
 
