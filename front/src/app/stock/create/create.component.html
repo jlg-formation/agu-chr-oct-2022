@@ -13,7 +13,10 @@
       <div>Quantité</div>
       <input type="number" formControlName="qty" />
     </label>
-    <button class="primary">Ajouter</button>
+    <button class="primary">
+      <fa-icon [icon]="faAdd"></fa-icon>
+      <span>Ajouter</span>
+    </button>
   </form>
   {{ f.value | json }}
 </main>

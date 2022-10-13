@@ -4,6 +4,10 @@ button {
   background-color: #eee;
   border: 0.1em solid #eee;
   border-radius: 0.3em;
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  justify-content: center;
 
   &:not(:disabled) {
     cursor: pointer;
