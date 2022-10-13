@@ -6,6 +6,7 @@ import { StockRoutingModule } from './stock-routing.module';
 import { StockComponent } from './stock.component';
 import { CreateComponent } from './create/create.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { WidgetModule } from '../widget/widget.module';
 
 @NgModule({
   declarations: [StockComponent, CreateComponent],
@@ -14,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     StockRoutingModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    WidgetModule,
   ],
 })
 export class StockModule {}
